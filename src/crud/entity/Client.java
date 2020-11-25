@@ -1,6 +1,11 @@
-package coentity;
+package crud.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name="clientsv")
@@ -15,35 +20,35 @@ public class Client {
 	}
 
 	public String getNombre() {
-		return Nombre;
+		return nombre;
 	}
 
 	public void setNombre(String nombre) {
-		Nombre = nombre;
+		this.nombre = nombre;
 	}
 
 	public String getApellido() {
-		return Apellido;
+		return apellido;
 	}
 
 	public void setApellido(String apellido) {
-		Apellido = apellido;
+		this.apellido = apellido;
 	}
 
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 
 	public Client() {
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Client [id=" + id + ", Nombre=" + Nombre + ", Apellido=" + Apellido + ", Email=" + Email + "]";
+		return "Client [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + "]";
 	}
 
 	@Id
@@ -52,13 +57,13 @@ public class Client {
 	private int id;
 	
 	@Column(name="Nombre")
-	private String Nombre;
+	private String nombre;
 	
-	@Column(name="Apellidos")
-	private String Apellido;
+	@Column(name="Apellido")
+	private String apellido;
 	
 	@Column(name="Email")
-	private String Email;
+	private String email;
 			
 }
 

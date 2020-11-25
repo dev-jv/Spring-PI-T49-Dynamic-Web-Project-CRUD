@@ -15,7 +15,7 @@
 		http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<!-- Paquete de escaneo de componentes -->
-	<context:component-scan base-package="scanpack" />
+	<context:component-scan base-package="crud" />
 
 	<!-- Conversión formateo y validación-->
 	<mvc:annotation-driven/>
@@ -28,9 +28,9 @@
 	</bean>
 
     <!-- Origen BBDD y connection pool -->
-	<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
           destroy-method="close">
-        <property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
         <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/ordermanagementcrud?useSSL=false&amp;serverTimezone=UTC" />
         <property name="user" value="root" />
         <property name="password" value="" /> 
@@ -44,8 +44,8 @@
     <!--  Configuración Hibernate session factory -->
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-		<property name="dataSource" ref="myDataSource" />
-		<property name="packagesToScan" value="coentity" />
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="crud.entity" />
 		<property name="hibernateProperties">
 		   <props>
 		      <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>

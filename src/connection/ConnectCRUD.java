@@ -39,8 +39,8 @@ public class ConnectCRUD extends HttpServlet {
 		
 		String password = "";
 		
-		String driver="com.mysql.cj.jdbc.Driver";
-//		String driver="com.mysql.jdbc.Driver";
+//		String driver="com.mysql.cj.jdbc.Driver";
+		String driver="com.mysql.jdbc.Driver";
 		
 		try {
 			PrintWriter out = response.getWriter();
